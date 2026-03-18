@@ -20,9 +20,12 @@ public class RenderTestApplication {
     @CrossOrigin(origins = "*")
     @PostMapping("/api/echo")
     public Map<String, Object> echoJson(@RequestBody Map<String, Object> payload) {
+        String message = payload.get("message").toString();
+        int length = message.length();
         return Map.of(
                 "status", "received",
                 "data" , payload,
+                "length", length,
                 "timestamp", System.currentTimeMillis()
         );
     }
