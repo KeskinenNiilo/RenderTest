@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Map;
+
 
 @SpringBootApplication
 @RestController
@@ -16,6 +17,7 @@ public class RenderTestApplication {
         SpringApplication.run(RenderTestApplication.class, args);
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/api/echo")
     public Map<String, Object> echoJson(@RequestBody Map<String, Object> payload) {
         return Map.of(
